@@ -19,3 +19,23 @@ function arraySum(arr){
 }
 let sum = arraySum([1,2,3]);
 console.log(sum(2));
+
+// Task 3
+
+function ValidEmail(email)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(email.value.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+return false;
+}
+}
+
+var email = "mesbahul.sohan@gmail.com";
+ValidEmail(email);
+
