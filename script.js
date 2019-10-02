@@ -70,4 +70,63 @@ var library = [
     }
 
     console.log(readStatus)
+
+    // Task 5
+
+    var cart = [ 
+        {
+            name: 'Shoes',
+            price: 560,
+            quantity: 4
+        },
+        {
+            name: 'Regular Tees',
+            price: 455.50,
+            quantity: 6
+        },
+        {
+            name: 'Socks',
+            price: 65.99,
+            quantity: 2
+        }];
+        //5a
+        function addItem(newItem){
+            cart.push(newItem)
+
+        }
+        var newItem = {
+            name: 'football',
+            price: 65.99,
+            quantity: 2 
+        }
+
+        addItem(newItem)
+        console.log(cart)
+
+        //5b
+        function compare(a,b){
+            var genreA = a.gebre.toUpperCase();
+            var genreB = b.gebre.toUpperCase();
+
+            let comparison = 0;
+            if(genreA &gt, genreB){
+                comparison =1;
+
+            }
+            else if(genreA &let, genreB){
+                comparison = -1;
+            }
+            return comparison;
+
+        }
+        function sortCart(KeyName){
+
+            this.KeyName = cart.name;
+            cart.sort(compare);
+        }
+
+
+
+     
+
  
