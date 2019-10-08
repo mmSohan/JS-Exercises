@@ -22,22 +22,11 @@ console.log(sum(2));
 
 // Task 3
 
-function ValidEmail(email)
-{
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(email.value.match(mailformat))
-{
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-return false;
-}
+function validEmail(email){
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 }
 
-var email = "mesbahul.sohan@gmail.com";
-ValidEmail(email);
+console.log(validEmail("mesbahul.sohan@gmail.com"));
 
 
 //Task 4
@@ -69,7 +58,7 @@ var library = [
         return library[index].readingStatus
     }
 
-    console.log(readStatus)
+    console.log(readStatus(1));
 
     // Task 5
 
@@ -96,35 +85,50 @@ var library = [
         }
         var newItem = {
             name: 'football',
-            price: 65.99,
-            quantity: 2 
+            price: 75,
+            quantity: 3 
         }
 
         addItem(newItem)
         console.log(cart)
 
         //5b
-        function compare(a,b){
-            var genreA = a.gebre.toUpperCase();
-            var genreB = b.gebre.toUpperCase();
-
-            let comparison = 0;
-            if(genreA &gt, genreB){
-                comparison =1;
-
-            }
-            else if(genreA &let, genreB){
-                comparison = -1;
-            }
-            return comparison;
-
+        
+        function sortCart(quantity){
+            cart.sort(function (a, b) {
+                if (a.quantity > b.quantity) {
+                    return -1;
+                }
+                if (b.quantity > a.quantity) {
+                    return 1;
+                }
+                return 0;
+            });
         }
-        function sortCart(KeyName){
+        sortCart("quantity");
+        console.log(cart);
 
-            this.KeyName = cart.name;
-            cart.sort(compare);
+        //5c
+
+        function findByName(name){
+            return cart.find(a => {
+                return a.name === name;
+            });
+        }
+        console.log(findByName("Socks"));
+
+        //5d
+
+        function totalCost(){
+            var sum = 0;
+            cart.forEach(a =>{
+                sum += (a.price)*a.quantity;
+
+            });
+            return sum;
         }
 
+        console.log("Total Cost: "+totalCost());
 
 
      
